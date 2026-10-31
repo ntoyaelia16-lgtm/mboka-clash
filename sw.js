@@ -1,4 +1,4 @@
-const CACHE='mboka-roi-vitre-v1';
+const CACHE='mboka-roi-v1';
 const ASSETS=['./','./index.html','./admin.html','./manifest.json'];
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)))
