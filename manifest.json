@@ -1,7 +1,7 @@
 {
   "name": "MBOKA ROI 👑 - Universel",
   "short_name": "MBOKA ROI",
-  "description": "Réseau des Rois - Tout téléphone Android iPhone - Avatar OR à 1M!",
+  "description": "Réseau des Rois - Avatar OR à 1M - Tout téléphone!",
   "start_url": "/mboka-clash/",
   "display": "standalone",
   "background_color": "#000000",
@@ -10,13 +10,13 @@
   "scope": "/mboka-clash/",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
