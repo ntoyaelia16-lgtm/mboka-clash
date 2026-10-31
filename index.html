@@ -1,121 +1,42 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBOKA STREAM - Live Kin</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0066FF">
-<style>
-:root{--blue:#0066FF;--red:#FF0033;--black:#000;--card:#111}
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#000;color:#fff;padding-bottom:80px}
-.header{position:sticky;top:0;z-index:99;background:rgba(0,0,0,0.9);border-bottom:2px solid var(--blue);padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:900;font-size:22px} .logo b{color:var(--blue)} .logo span{color:var(--red)}
-.coin{background:#111;border:1px solid var(--blue);padding:6px 12px;border-radius:20px;font-size:12px;font-weight:700}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid #222;position:relative}
-.thumb{width:100%;height:220px;background:#000}
-.thumb img{width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;top:8px;left:8px;background:var(--red);padding:3px 8px;border-radius:6px;font-size:10px;font-weight:900}
-.view{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);padding:3px 8px;border-radius:6px;font-size:10px}
-.info{padding:10px} .info b{font-size:13px} .info small{color:#888;display:block;font-size:11px}
-.btn{width:100%;background:var(--blue);border:none;color:#fff;padding:8px;border-radius:20px;font-weight:800;margin-top:6px}
-.go{position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:var(--red);border:none;color:#fff;padding:16px 32px;border-radius:30px;font-weight:900;font-size:16px;box-shadow:0 8px 30px rgba(255,0,51,0.6);z-index:90}
-.bottom{position:fixed;bottom:0;width:100%;background:#0A0A0A;border-top:1px solid #222;display:flex;justify-content:space-around;padding:10px 0;z-index:100}
-.nav{color:#555;text-align:center;font-size:11px} .nav.on{color:var(--blue)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;z-index:200;padding:16px}
-.modal.on{display:flex}
-.box{background:#111;border:1px solid var(--blue);border-radius:20px;padding:20px;width:100%;max-width:360px}
-.input{width:100%;background:#000;border:1px solid #333;padding:14px;border-radius:10px;color:#fff;margin:8px 0}
-#liveVideo{width:100%;height:300px;background:#000;border-radius:12px;object-fit:cover}
-.payBtn{display:flex;gap:8px} .payBtn button{flex:1}
-</style>
-</head>
-<body>
-<div class="header">
-<div class="logo"><b>MBOKA</b> <span>STREAM</span></div>
-<div class="coin">💰 <span id="fc">0</span> FC</div>
-</div>
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MBOKA ROI - Dépasse TikTok & Insta</title><link rel="manifest" href="manifest.json"><style>:root{--red:#FF0033;--gold:#FFD700;--green:#00FF88;--blue:#0066FF;--pink:#FF2E93;--congo:#00BFFF}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:#000;color:#fff;padding-bottom:85px}.header{position:sticky;top:0;z-index:99;background:linear-gradient(90deg,#000,#220011);border-bottom:3px solid var(--red);padding:10px 16px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:900;font-size:19px}.coin{background:#111;border:1px solid var(--gold);padding:6px 10px;border-radius:20px;font-size:10px;font-weight:700}.king-banner{background:linear-gradient(90deg,#FF0033,#FFD700,#00FF88,#0066FF);padding:10px;text-align:center;font-weight:900;color:#000;font-size:11px;animation:rainbow 3s linear infinite}@keyframes rainbow{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}.power-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:8px}.power-card{background:#111;border:1px solid #333;border-radius:12px;padding:8px;text-align:center;font-size:9px}.power-card b{display:block;font-size:11px;margin-bottom:2px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px}.card{background:#111;border-radius:16px;overflow:hidden;border:1px solid #222;position:relative}.thumb{width:100%;height:210px;background:#000}.thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(1.15) saturate(1.2)}.badge{position:absolute;top:6px;left:6px;padding:3px 8px;border-radius:20px;font-size:8px;font-weight:900;z-index:2}.badge.roi{background:var(--gold);color:#000;animation:pulse 1s infinite}.badge.live10{background:var(--red)}.badge.sape{background:var(--pink)}.badge.echange{background:var(--green);color:#000}.badge.tontine{background:var(--blue)}.certified{position:absolute;bottom:6px;left:6px;background:var(--red);padding:3px 8px;border-radius:20px;font-size:8px;font-weight:900}.king-crown{position:absolute;top:30px;left:6px;background:var(--gold);color:#000;padding:2px 6px;border-radius:10px;font-size:8px;font-weight:900}.price{position:absolute;top:6px;right:6px;background:var(--green);color:#000;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:900}.offline{position:absolute;bottom:6px;right:6px;background:var(--blue);padding:2px 6px;border-radius:10px;font-size:8px}.info{padding:8px}.info b{font-size:11px;display:flex;align-items:center;gap:3px}.info small{color:#888;font-size:9px;display:block}.filter-bar{display:flex;gap:5px;padding:8px;overflow-x:auto}.filter-btn{padding:7px 12px;border-radius:20px;border:1px solid #333;background:#111;color:#fff;font-size:10px;white-space:nowrap}.filter-btn.on{background:var(--red);border-color:var(--red)}.bottom{position:fixed;bottom:0;width:100%;background:#0A0A0A;border-top:1px solid #222;display:flex;justify-content:space-around;padding:8px 0;z-index:100}.nav{color:#555;text-align:center;font-size:9px}.nav.on{color:var(--red)}.go{position:fixed;bottom:85px;right:14px;background:var(--red);border:none;color:#fff;width:62px;height:62px;border-radius:50%;font-size:10px;font-weight:900;z-index:90;line-height:10px}.add{position:fixed;bottom:85px;left:14px;background:var(--gold);border:none;color:#000;width:56px;height:56px;border-radius:50%;font-size:24px;z-index:90;font-weight:900}.modal{position:fixed;inset:0;background:rgba(0,0,0,0.97);display:none;align-items:center;justify-content:center;z-index:200;padding:16px}.modal.on{display:flex}.box{background:#111;border:2px solid var(--red);border-radius:20px;padding:20px;width:100%;max-width:360px;max-height:92vh;overflow-y:auto}.input{width:100%;background:#000;border:1px solid #333;padding:12px;border-radius:10px;color:#fff;margin:6px 0;font-size:14px}</style></head><body>
+<div class="header"><div class="logo"><b>MBOKA</b> <span style="color:#FF0033">ROI 👑</span></div><div style="display:flex;gap:5px"><div class="coin">👑 #1</div><div class="coin" style="border-color:var(--green)">💰 <span id="earn">0</span></div></div></div>
+<div class="king-banner">👑 MBOKA ROI - DÉPASSE TIKTOK & INSTA - 17 fonctions qu'ils n'ont pas - Échange + Live 10 + Tontine + Sape + Badge auto + Offline + Lingala</div>
+<div class="power-grid"><div class="power-card"><b>💱 Échange</b>FC/USD<br>TikTok non</div><div class="power-card"><b>🔴 Live 10</b>10 personnes<br>Insta 4 max</div><div class="power-card"><b>👗 Sape</b>Clash habits<br>TikTok non</div><div class="power-card"><b>👨‍👩‍👧‍👦 Tontine</b>100 pers<br>TikTok non</div><div class="power-card"><b>📴 Offline</b>5Mo<br>TikTok bouffe</div><div class="power-card"><b>🔴 Badge</b>Auto 10K<br>Insta demande</div></div>
+<div class="filter-bar"><button class="filter-btn on">👑 Roi</button><button class="filter-btn">🔴 Live 10</button><button class="filter-btn">💱 Échange</button><button class="filter-btn">👗 Sape</button><button class="filter-btn">👨‍👩‍👧‍👦 Tontine</button><button class="filter-btn">📴 Offline</button><button class="filter-btn">🏆 Classement</button></div>
+<div class="grid" id="grid"></div><button class="add" onclick="openPub()">＋</button><button class="go" onclick="openLive10()">🔴 LIVE<br>10 ROI</button>
+<div class="bottom"><div class="nav on">👑<br>ROI</div><div class="nav" onclick="openPub()">📹<br>Poster</div><div class="nav" onclick="openLive10()">🔴<br>Live 10</div><div class="nav" onclick="openExchange()">💱<br>Échange</div><div class="nav" onclick="location.href='admin.html'">💰<br>Gains</div></div>
 
-<div style="padding:10px 16px;display:flex;gap:8px;overflow-x:auto">
-<button style="background:var(--red);color:#fff;border:none;padding:7px 16px;border-radius:20px;font-size:12px;font-weight:800">🔴 LIVE</button>
-<button style="background:#111;border:1px solid #222;color:#fff;padding:7px 16px;border-radius:20px;font-size:12px">⚔️ CLASH</button>
-<button style="background:#111;border:1px solid #222;color:#fff;padding:7px 16px;border-radius:20px;font-size:12px">🎤 BATTLE</button>
-</div>
+<div class="modal on" id="mSign"><div class="box"><h2>👑 MBOKA ROI - DÉPASSE TOUT</h2><p style="font-size:10px;color:#888">TikTok & Insta n'ont pas: Échange FC, Live 10, Tontine, Sape, Offline, Badge auto, Paiement Orange/Wave auto</p><input class="input" id="sName" placeholder="Nom de Roi - Ex: Roi Sape Kinshasa"><input class="input" id="sNum" placeholder="Numéro Orange/Wave/PayPal AUTO pour recevoir"><select class="input" id="sCity"><option>👑 Kinshasa - Capitale du Roi</option><option>Lubumbashi</option><option>Goma</option><option>Bruxelles</option><option>Paris</option><option>Montréal</option><option>USA</option></select><div style="background:#000;padding:8px;border-radius:8px;font-size:9px;border-left:3px solid var(--gold)">👑 <b>Tu deviens ROI avec:</b><br>• 10K abos = 🔴 badge rouge auto<br>• 50K = 👑 badge doré auto<br>• 100K = 👑 ROI DU CONGO + couronne<br>• Live 10 + Échange 5% + Tontine 10% auto pour toi!</div><button class="input" style="background:var(--red);font-weight:900;border:none" onclick="doSign()">👑 DEVENIR ROI - DÉPASSER TIKTOK & INSTA</button></div></div>
 
-<div class="grid" id="grid"></div>
-<button class="go" onclick="openLive()">🔴 GO LIVE</button>
+<div class="modal" id="mPub"><div class="box"><h3>👑 Poster comme ROI - TikTok & Insta n'ont pas</h3><input class="input" id="vTitle" placeholder="Titre de Roi"><select class="input" id="vCat"><option value="roi">👑 Pour être ROI du Congo - Classement</option><option value="live10">🔴 Live 10 personnes - TikTok 1 seul, Insta 4 max, MBOKA 10!</option><option value="sape">👗 Clash Sape - Vote payant habits - TikTok non</option><option value="tontine">👨‍👩‍👧‍👦 Tontine 100 pers - Cagnotte - TikTok non</option><option value="echange">💱 Échange FC/USD - Bureau change - TikTok non</option><option value="offline">📴 Offline 5Mo - Sans data - TikTok bouffe data</option><option value="close">🔒 Close Friends Payant 2000 FC/mois - Insta gratuit, MBOKA payant pour toi!</option><option value="voice">🎤 Voice Note Vidéo - Vocale devient vidéo - TikTok non</option></select><input class="input" id="vPrice" type="number" placeholder="Prix: 500 FC - Auditeurs payent - Toi 30% auto"><input class="input" type="file" accept="video/*,image/*"><button class="input" style="background:var(--red);font-weight:900;border:none" onclick="pub()">👑 PUBLIER COMME ROI - DÉPASSE TOUT</button><button class="input" style="background:#222" onclick="closeAll()">Annuler</button></div></div>
 
-<div class="bottom">
-<div class="nav on">🏠<br>Accueil</div>
-<div class="nav" onclick="showWallet()">💰<br>Wallet</div>
-<div class="nav" onclick="location.href='admin.html'">⚙️<br>Admin</div>
-<div class="nav">👤<br>Profil</div>
-</div>
+<div class="modal" id="mLive10"><div class="box"><h3>🔴 LIVE 10 ROI - TikTok 1, Insta 4, MBOKA 10!</h3><p style="font-size:10px;color:#888">10 rois parlent en même temps! Salon congolais! Auditeurs payent 100 FC pour entrer!</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0"><div style="background:var(--red);padding:20px;border-radius:10px;text-align:center">👑 Toi ROI</div><div style="background:#000;border:1px dashed #333;padding:20px;border-radius:10px;text-align:center">Slot 2</div><div style="background:#000;border:1px dashed #333;padding:20px;border-radius:10px;text-align:center">Slot 3</div><div style="background:#000;border:1px dashed #333;padding:20px;border-radius:10px;text-align:center">Slot 4</div></div><input class="input" placeholder="Titre: Débat Roi Kin vs Lubum"><button class="input" style="background:var(--red);font-weight:900;border:none" onclick="startLive10()">🔴 LANCER LIVE 10 ROI - 30% pour toi!</button><button class="input" style="background:#222" onclick="closeAll()">Annuler</button></div></div>
 
-<div class="modal" id="mLive">
-<div class="box">
-<h3>🔴 Lancer ton CLASH</h3>
-<input class="input" id="title" placeholder="Titre: Ball vs Cc Ngaba">
-<video id="liveVideo" autoplay muted playsinline></video>
-<button class="input" style="background:var(--red);font-weight:900;border:none" onclick="startLive()">🚀 COMMENCER LIVE</button>
-<button class="input" style="background:#222" onclick="closeAll()">Annuler</button>
-</div>
-</div>
-
-<div class="modal" id="mWatch">
-<div class="box">
-<div style="display:flex;justify-content:space-between"><b id="wName">Live</b><button onclick="closeAll()" style="background:#222;border:none;color:#fff;padding:6px 12px;border-radius:20px">✕</button></div>
-<div style="width:100%;height:300px;background:#000;border-radius:12px;margin:10px 0;display:flex;align-items:center;justify-content:center">🔴 LIVE EN COURS</div>
-<button class="input" style="background:var(--red);font-weight:900;border:none" onclick="openPay()">💎 S'ABONNER 5000 FC - Airtel/Wave</button>
-<button class="input" style="background:#222" onclick="closeAll()">Fermer</button>
-</div>
-</div>
-
-<div class="modal" id="mPay">
-<div class="box">
-<h3>💰 Payer 5000 FC</h3>
-<p style="font-size:11px;color:#888;margin:6px 0">Même numéro pour Airtel Money & Wave</p>
-<input class="input" id="payNum" placeholder="+243 81... ton numéro" type="tel">
-<div class="payBtn">
-<button class="input" style="background:#FF0000;font-weight:900;border:none" onclick="payWith('airtel')">Airtel</button>
-<button class="input" style="background:#00D4FF;color:#000;font-weight:900;border:none" onclick="payWith('wave')">Wave</button>
-</div>
-<button class="input" style="background:#222" onclick="closeAll()">Annuler</button>
-<small style="color:#555;font-size:10px">Ton numéro sert pour les 2 - tu reçois USSD *501# ou notif Wave</small>
-</div>
-</div>
+<div class="modal" id="mExchange"><div class="box"><h3>💱 Bureau Change ROI - TikTok & Insta n'ont pas</h3><div style="background:#000;padding:12px;border-radius:10px;font-size:11px"><div>1$ = 2850 FC</div><div>Orange Money: 2800 FC</div><div>Wave: 2820 FC</div><div style="color:var(--green);margin-top:8px">Ta commission 5% auto sur chaque échange!</div><div style="color:var(--gold)">20 échanges/jour = 28 500 FC/jour pour toi!</div></div><input class="input" id="exFrom" placeholder="1000 FC" oninput="calcEx()"><input class="input" id="exTo" placeholder="0.35$ USD" readonly><button class="input" style="background:var(--green);color:#000;font-weight:900;border:none" onclick="exchange()">💱 ÉCHANGER AUTO - 5% pour toi!</button><button class="input" style="background:#222" onclick="closeAll()">Fermer</button></div></div>
 
 <script>
-let me=JSON.parse(localStorage.getItem('mboka_me')||'null');
-if(!me){me={name:'Kinois_'+Math.floor(Math.random()*9000),fc:0,subs:0};localStorage.setItem('mboka_me',JSON.stringify(me))}
-document.getElementById('fc').innerText=me.fc;
-let stream=null;
-let savedNum=localStorage.getItem('user_pay_num')||'';
-if(savedNum)document.getElementById('payNum').value=savedNum;
-const lives=[
-{name:'Ball le Boss',title:'CLASH Ngaba ce soir!',v:342},
-{name:'Cc Officiel',title:'Freestyle live',v:128},
-{name:'Hfui Music',title:'Qui est le plus fort?',v:89},
-{name:'Mama Kin',title:'Debat + cuisine',v:256}
-];
-function render(){
-document.getElementById('grid').innerHTML=lives.map((l,i)=>`
-<div class="card" onclick="watchLive('${l.name}')">
-<div class="badge">🔴 LIVE</div><div class="view">👁 ${l.v}</div>
-<div class="thumb"><img src="https://picsum.photos/400/600?random=${i+10}"></div>
-<div class="info"><b>${l.name}</b><small>${l.title}</small><button class="btn">REGARDER</button></div>
-</div>`).join('');
-}
+let me=JSON.parse(localStorage.getItem('mboka_roi_final')||'null');
+let videos=JSON.parse(localStorage.getItem('mboka_roi_final_v')||'[]');
+if(videos.length==0){videos=[
+{name:'Roi Kinshasa',title:'👑 ROI DE KINSHASA - 100K abos - Couronne dorée!',subs:100000,price:1000,img:20,cat:'roi',feat:'ROI 100K - TikTok & Insta non'},
+{name:'Reine Sape',title:'👗 Clash Sape Ngaba vs Matete - Vote 100 FC',subs:45000,price:100,img:16,cat:'sape',feat:'Clash Sape payant'},
+{name:'Boss Live10',title:'🔴 LIVE 10 - 10 rois débattent - Entre 100 FC',subs:25000,price:100,img:10,cat:'live10',feat:'Live 10 - TikTok 1, Insta 4'},
+{name:'Mama Tontine',title:'👨‍👩‍👧‍👦 Tontine 100 pers - 1000 FC chacun - 100K cagnotte!',subs:15000,price:1000,img:12,cat:'tontine',feat:'Tontine Famille'},
+{name:'Boss Change',title:'💱 J échange 50$ -> FC rapide - 5% commission',subs:8000,price:2000,img:11,cat:'echange',feat:'Bureau Change'},
+{name:'Voice Queen',title:'🎤 Voice Note Vidéo - Mon vocal devient vidéo',subs:12000,price:300,img:15,cat:'voice',feat:'Voice Vidéo'}
+];}
+function check(){if(!me){document.getElementById('mSign').classList.add('on')}else{document.getElementById('mSign').classList.remove('on');upd()}}check();
+function doSign(){let n=document.getElementById('sName').value;let num=document.getElementById('sNum').value;if(!n||!num){alert('Remplis');return;}me={name:n,num:num,earn:0,subs:Math.floor(Math.random()*3000)+500};localStorage.setItem('mboka_roi_final',JSON.stringify(me));document.getElementById('mSign').classList.remove('on');upd();alert('👑 BIENVENUE ROI '+n+'!\n\n🔥 Tu as maintenant ce que TikTok & Insta n ont pas:\n✅ Live 10 personnes\n✅ Échange FC/USD 5%\n✅ Tontine 10%\n✅ Clash Sape\n✅ Badge rouge auto 10K\n✅ Mode offline\n✅ Paiement auto Orange/Wave\n\nTu vas régner!');}
+function upd(){if(!me)return;document.getElementById('earn').innerText=me.earn;render();}
+function render(){videos.sort((a,b)=>b.subs-a.subs);document.getElementById('grid').innerHTML=videos.map((v,i)=>`<div class="card" onclick="view(${i})"><div class="badge ${v.cat}">${v.cat=='roi'?'👑 ROI':v.cat=='live10'?'🔴 LIVE 10':v.cat=='sape'?'👗 SAPE':v.cat=='tontine'?'👨‍👩‍👧‍👦 TONTINE':v.cat=='echange'?'💱 ÉCHANGE':'🎤 VOICE'}</div>${i==0?'<div class=king-crown>👑 ROI DU CONGO</div>':''}<div class="price">${v.price} FC</div><div class="certified">${v.subs>=100000?'👑 ROI':v.subs>=50000?'👑 DORÉ':v.subs>=10000?'🔴 CERTIFIÉ':'👥 '+v.subs} ${v.subs>=1000?Math.floor(v.subs/1000)+'K':''}</div><div class="offline">📴 5Mo</div><div class="thumb"><img src="https://picsum.photos/400/500?random=${v.img}"></div><div class="info"><b>${v.name} ${i==0?'👑':v.subs>=10000?'🔴':''}</b><small>${v.title}</small><small style="color:var(--gold)">⚡ ${v.feat} - TikTok & Insta NON</small></div></div>`).join('');}
+function view(i){let v=videos[i];let gain=Math.floor(v.price*(v.cat=='echange'?0.05:v.cat=='tontine'?0.1:0.3));me.earn+=gain;me.subs+=15;if(me.subs>=10000&&me.subs<10015){alert('🎉🔴 BADGE ROUGE AUTO DÉBLOQUÉ! 10K!\nTikTok & Insta demandent, MBOKA auto!');}if(me.subs>=100000){alert('👑👑👑 TU ES ROI DU CONGO! 100K!\nCouronne dorée auto! Tu règnes!');}localStorage.setItem('mboka_roi_final',JSON.stringify(me));upd();alert('👑 Vu: '+v.title+'\n\n⚡ Fonction TikTok & Insta n ont pas: '+v.feat+'\n💰 Gain: '+gain+' FC auto sur '+me.num+'\n👥 Abonnés: '+me.subs+'\n\nTu dépasses TikTok & Insta!');}
+function openPub(){document.getElementById('mPub').classList.add('on');}
+function pub(){let t=document.getElementById('vTitle').value||'Pour régner';let cat=document.getElementById('vCat').value;videos.unshift({name:me.name,title:t,subs:me.subs,price:parseInt(document.getElementById('vPrice').value)||500,img:Math.floor(Math.random()*100),cat:cat.includes('ROI')?'roi':cat.includes('Live')?'live10':cat.includes('Sape')?'sape':cat.includes('Tontine')?'tontine':cat.includes('Échange')?'echange':cat.includes('Close')?'close':'voice',feat:cat});localStorage.setItem('mboka_roi_final_v',JSON.stringify(videos));closeAll();render();alert('👑 PUBLIÉ COMME ROI!\nFonction TikTok & Insta n ont pas: '+cat);}
+function openLive10(){document.getElementById('mLive10').classList.add('on');}
+function startLive10(){closeAll();alert('🔴 LIVE 10 ROI LANCÉ!\n\n10 personnes max!\nTikTok = 1, Insta = 4, MBOKA = 10!\n\nAuditeurs payent 100 FC pour entrer!\n30% pour toi organisateur ROI!');}
+function openExchange(){document.getElementById('mExchange').classList.add('on');}
+function calcEx(){let f=document.getElementById('exFrom').value||0;document.getElementById('exTo').value=(f/2850).toFixed(2)+'$ USD';}
+function exchange(){let f=document.getElementById('exFrom').value||1000;let gain=Math.floor(f*0.05);me.earn+=gain;localStorage.setItem('mboka_roi_final',JSON.stringify(me));upd();alert('💱 ÉCHANGE AUTO!\n'+f+' FC -> '+(f/2850).toFixed(2)+'$\n\n💰 5% pour toi ROI: '+gain+' FC sur '+me.num+'\n\nTikTok & Insta n ont pas de bureau de change!');}
+function closeAll(){document.querySelectorAll('.modal').forEach(m=>{if(m.id!='mSign')m.classList.remove('on')})}
 render();
-async function openLive(){
-document.getElementById('mLive').classList.add('on');
-try{stream=await navigator.mediaDevices.getUserMedia({video:true,audio:true});document.getElementById('liveVideo').srcObject=stream;}catch(e){alert('Camera bloquée: autorise la caméra')}
-}
-function startLive(){
-let t=document.getElementById('title').value||'CLASH LIVE MBOKA';
-lives.unshift({name:me.name,title:t,v:1});render();closeAll();
-alert('🔴 LIVE LANCÉ: '+t+'\nTout Kin voit ton live! Tu gagnes 70% des abonnements');
-}
-function watchLive(n){document.getElementById('wName').innerText=n
+</script></body></html>
