@@ -29,6 +29,7 @@ body{background:#000;color:#fff;padding-bottom:80px}
 .box{background:#111;border:1px solid var(--blue);border-radius:20px;padding:20px;width:100%;max-width:360px}
 .input{width:100%;background:#000;border:1px solid #333;padding:14px;border-radius:10px;color:#fff;margin:8px 0}
 #liveVideo{width:100%;height:300px;background:#000;border-radius:12px;object-fit:cover}
+.payBtn{display:flex;gap:8px} .payBtn button{flex:1}
 </style>
 </head>
 <body>
@@ -67,8 +68,22 @@ body{background:#000;color:#fff;padding-bottom:80px}
 <div class="box">
 <div style="display:flex;justify-content:space-between"><b id="wName">Live</b><button onclick="closeAll()" style="background:#222;border:none;color:#fff;padding:6px 12px;border-radius:20px">✕</button></div>
 <div style="width:100%;height:300px;background:#000;border-radius:12px;margin:10px 0;display:flex;align-items:center;justify-content:center">🔴 LIVE EN COURS</div>
-<button class="input" style="background:var(--red);font-weight:900" onclick="doSub()">💎 S'ABONNER 5000 FC</button>
+<button class="input" style="background:var(--red);font-weight:900;border:none" onclick="openPay()">💎 S'ABONNER 5000 FC - Airtel/Wave</button>
 <button class="input" style="background:#222" onclick="closeAll()">Fermer</button>
+</div>
+</div>
+
+<div class="modal" id="mPay">
+<div class="box">
+<h3>💰 Payer 5000 FC</h3>
+<p style="font-size:11px;color:#888;margin:6px 0">Même numéro pour Airtel Money & Wave</p>
+<input class="input" id="payNum" placeholder="+243 81... ton numéro" type="tel">
+<div class="payBtn">
+<button class="input" style="background:#FF0000;font-weight:900;border:none" onclick="payWith('airtel')">Airtel</button>
+<button class="input" style="background:#00D4FF;color:#000;font-weight:900;border:none" onclick="payWith('wave')">Wave</button>
+</div>
+<button class="input" style="background:#222" onclick="closeAll()">Annuler</button>
+<small style="color:#555;font-size:10px">Ton numéro sert pour les 2 - tu reçois USSD *501# ou notif Wave</small>
 </div>
 </div>
 
@@ -77,6 +92,8 @@ let me=JSON.parse(localStorage.getItem('mboka_me')||'null');
 if(!me){me={name:'Kinois_'+Math.floor(Math.random()*9000),fc:0,subs:0};localStorage.setItem('mboka_me',JSON.stringify(me))}
 document.getElementById('fc').innerText=me.fc;
 let stream=null;
+let savedNum=localStorage.getItem('user_pay_num')||'';
+if(savedNum)document.getElementById('payNum').value=savedNum;
 const lives=[
 {name:'Ball le Boss',title:'CLASH Ngaba ce soir!',v:342},
 {name:'Cc Officiel',title:'Freestyle live',v:128},
@@ -101,15 +118,4 @@ let t=document.getElementById('title').value||'CLASH LIVE MBOKA';
 lives.unshift({name:me.name,title:t,v:1});render();closeAll();
 alert('🔴 LIVE LANCÉ: '+t+'\nTout Kin voit ton live! Tu gagnes 70% des abonnements');
 }
-function watchLive(n){document.getElementById('wName').innerText=n;document.getElementById('mWatch').classList.add('on');}
-function closeAll(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('on'));if(stream){stream.getTracks().forEach(t=>t.stop())}}
-function doSub(){
-me.fc+=1500;me.subs++;localStorage.setItem('mboka_me',JSON.stringify(me));
-document.getElementById('fc').innerText=me.fc;
-alert('💰 Merci! 5000 FC payé\n3500 FC -> createur\n1500 FC -> TOI!\n\nGains: '+me.fc+' FC');
-closeAll();
-}
-function showWallet(){alert('💰 WALLET MBOKA\n\nGains: '+me.fc+' FC\nAbonnés: '+me.subs+'\n\nRetrait: va dans admin.html -> configure ton Airtel Money')}
-</script>
-</body>
-</html>
+function watchLive(n){document.getElementById('wName').innerText=n
