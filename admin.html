@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin MBOKA</title><style>body{background:#000;color:#fff;font-family:system-ui;padding:16px} .card{background:#111;border:1px solid #0066FF;border-radius:12px;padding:16px;margin:10px 0} b{color:#0066FF} input{width:100%;background:#000;border:1px solid #333;padding:10px;border-radius:8px;color:#fff;margin:5px 0}</style></head><body>
+<h2 style="color:#0066FF">⚙️ ADMIN MBOKA STREAM</h2>
+<div class="card">💰 Gains totaux: <b id="total">0</b> FC<br>Abonnés: <b id="subs">0</b><br>Utilisateurs: <b id="users">0</b></div>
+<div class="card"><h3>💸 Config ton Airtel Money</h3><input id="num" placeholder="Ton numéro Airtel Money: +243..."><input id="nom" placeholder="Nom pour retrait"><button onclick="save()" style="background:#0066FF;border:none;color:#fff;padding:10px 20px;border-radius:20px;font-weight:800;width:100%">SAUVER</button><small style="color:#888">70% des 5000 FC ira sur ce numéro automatiquement avec CinetPay</small></div>
+<div class="card"><h3>👥 Utilisateurs</h3><div id="list"></div></div>
+<script>
+let me=JSON.parse(localStorage.getItem('mboka_me')||'{"fc":0,"subs":0}');
+let users=JSON.parse(localStorage.getItem('mboka_users')||'[]');
+document.getElementById('total').innerText=me.fc||0;
+document.getElementById('subs').innerText=me.subs||0;
+document.getElementById('users').innerText=users.length||1;
+document.getElementById('list').innerHTML=(users.length?users:[me]).map(u=>`<div style="border-bottom:1px solid #222;padding:8px 0">${u.name||'Kinois'} - ${u.fc||0} FC</div>`).join('');
+function save(){alert('✅ Numéro sauvé: '+document.getElementById('num').value+'\n\nQuand quelqu un paye 5000 FC:\n3500 FC -> créateur\n1500 FC -> toi sur '+document.getElementById('num').value);localStorage.setItem('admin_num',document.getElementById('num').value)}
+</script></body></html>
