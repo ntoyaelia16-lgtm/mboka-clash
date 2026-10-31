@@ -3,80 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MBOKA ROI - Claire</title>
+<title>MBOKA ROI - Zéro - Claire - Tout</title>
 <style>
-:root{--bg:#F2F2F7;--card:#FFFFFF;--sub:#8E8E93;--gold:#FFD700}
+:root{--bg:#F2F2F7;--card:#FFFFFF;--line:#E6E6EB;--text:#0A0A0A;--sub:#8E8E93;--gold:#FFD700;--blue:#007AFF;--red:#FF3B30;--green:#34C759;--orange:#FF9500}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);font-family:sans-serif;padding-bottom:90px}
-.top{position:sticky;top:0;background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);border-bottom:0.5px solid #E5E5EA;padding:14px 16px;display:flex;justify-content:space-between}
-.logo{font-weight:900;font-size:19px}
-.logo span{background:#000;color:var(--gold);padding:2px 7px;border-radius:7px;margin-left:4px}
-.hero{margin:16px;background:#fff;border-radius:20px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.04)}
-.hero h1{font-size:22px;line-height:1.2;font-weight:900}
-.hero h1 b{background:#000;color:var(--gold);padding:0 6px;border-radius:8px}
-.hero p{margin-top:10px;color:var(--sub);font-size:13px;line-height:1.5}
-.grid{margin:0 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:#fff;border-radius:18px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,0.04);border:0.5px solid #F0F0F0;position:relative}
+body{background:var(--bg);font-family:sans-serif;color:var(--text);padding-bottom:100px}
+.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--line);padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:950;font-size:20px}
+.logo b{background:#000;color:var(--gold);padding:3px 8px;border-radius:8px;margin-left:4px}
+.wallet{display:flex;align-items:center;gap:8px;background:#000;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800}
+.wallet span{color:var(--gold)}
+.hero{margin:16px;background:var(--card);border-radius:22px;padding:20px;box-shadow:0 4px 24px rgba(0,0,0,0.05);border:0.5px solid var(--line)}
+.hero h1{font-size:24px;line-height:1.15;font-weight:900}
+.hero h1 u{text-decoration:none;background:#000;color:var(--gold);padding:2px 8px;border-radius:10px}
+.hero p{margin-top:12px;color:var(--sub);font-size:13.5px;line-height:1.55}
+.section{display:none;margin:0 16px}
+.section.active{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--card);border-radius:20px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,0.04);border:0.5px solid var(--line);position:relative}
 .card.full{grid-column:1/-1}
-.tag{position:absolute;top:10px;right:10px;font-size:9px;font-weight:800;background:#F2F2F7;color:var(--sub);padding:3px 7px;border-radius:20px}
-.card h3{font-size:14px;font-weight:800}
-.badge{display:inline-block;background:#000;color:var(--gold);font-size:10px;font-weight:800;padding:3px 7px;border-radius:7px;margin-top:8px}
+.card .tag{position:absolute;top:12px;right:12px;font-size:9px;font-weight:800;background:var(--bg);color:var(--sub);padding:4px 8px;border-radius:20px}
+.card h3{font-size:14.5px;font-weight:800}
+.card .nous{margin-top:8px;display:inline-block;background:#000;color:var(--gold);font-size:10px;font-weight:800;padding:4px 8px;border-radius:8px}
 .card small{color:var(--sub);font-size:11px;display:block;margin-top:8px}
-.btn{margin-top:12px;width:100%;padding:12px;border:none;border-radius:12px;font-weight:800;font-size:12px}
-.gold{background:var(--gold);color:#000}.black{background:#000;color:var(--gold)}.blue{background:#007AFF;color:#fff}.red{background:#FF3B30;color:#fff}
-.vs{margin:16px;background:#000;border-radius:20px;padding:18px;color:#fff}
-.vs h2{color:var(--gold);font-size:15px}
-.vs td{padding:8px 0;font-size:12px;border-bottom:0.5px solid #222}
+.btn{margin-top:12px;width:100%;padding:13px;border:none;border-radius:14px;font-weight:900;font-size:13px}
+.gold{background:var(--gold);color:#000}.black{background:#000;color:var(--gold)}.blue{background:var(--blue);color:#fff}.red{background:var(--red);color:#fff}
+.badge{display:inline-flex;background:#000;color:var(--gold);font-size:10px;font-weight:800;padding:4px 8px;border-radius:8px;margin:3px}
+.vs{margin:16px 0;background:#000;border-radius:22px;padding:20px;color:#fff}
+.vs h2{color:var(--gold);font-size:16px;font-weight:900}
+.vs td{padding:9px 0;font-size:12.5px;border-bottom:0.5px solid #1A1A1A}
 .vs td:last-child{color:var(--gold);font-weight:800;text-align:right}
-.publish{background:#fff;margin:16px;border-radius:18px;padding:14px}
-.publish textarea{width:100%;border:none;background:#F2F2F7;border-radius:12px;padding:12px;font-size:13px;outline:none;resize:none}
-.pill{padding:7px 12px;background:#F2F2F7;border-radius:20px;font-size:11px;font-weight:700;border:none}
-.feed{margin:0 16px}.post{background:#fff;border-radius:18px;padding:14px;margin-bottom:10px}
-.avatar{width:32px;height:32px;border-radius:50%;background:#000;color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-top:0.5px solid #E5E5EA;display:flex;justify-content:space-around;padding:10px 0 20px}
-.nav button{background:none;border:none;font-size:10px;color:var(--sub)}
-.nav button.active{color:#000;font-weight:800}
+.publish{background:var(--card);border-radius:20px;padding:14px;border:0.5px solid var(--line);margin-bottom:12px}
+.publish textarea{width:100%;border:none;background:var(--bg);border-radius:14px;padding:14px;font-size:14px;outline:none;resize:none}
+.pill{padding:8px 14px;background:var(--bg);border-radius:20px;font-size:11px;font-weight:700;border:0.5px solid var(--line)}
+.pill.active{background:#000;color:var(--gold);border-color:#000}
+.feed{display:flex;flex-direction:column;gap:10px}
+.post{background:var(--card);border-radius:20px;padding:14px;border:0.5px solid var(--line)}
+.post-head{display:flex;justify-content:space-between;align-items:center}
+.post-user{display:flex;gap:10px;align-items:center}
+.avatar{width:36px;height:36px;border-radius:50%;background:#000;color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px}
+.post-content{margin-top:12px;font-size:14px;line-height:1.45}
+.post-actions{margin-top:12px;display:flex;gap:8px}
+.post-actions button{flex:1;padding:10px;border-radius:12px;border:0.5px solid var(--line);background:#fff;font-weight:800;font-size:11px}
+.exchange-box{background:var(--card);border-radius:22px;padding:20px;border:0.5px solid var(--line)}
+.exchange-box h2{font-size:18px;font-weight:900}
+.input-group{margin-top:14px;background:var(--bg);border-radius:14px;padding:12px;display:flex;justify-content:space-between;align-items:center;border:0.5px solid var(--line)}
+.input-group input{border:none;background:transparent;font-size:22px;font-weight:900;width:60%;outline:none}
+.input-group span{font-weight:800;font-size:12px;background:#000;color:var(--gold);padding:4px 8px;border-radius:8px}
+.fee{margin-top:12px;background:#FFF8E1;border:0.5px solid #FFE082;border-radius:12px;padding:10px;font-size:11px;color:#8D6E00}
+.group-item{background:var(--card);border-radius:16px;padding:14px;display:flex;justify-content:space-between;align-items:center;border:0.5px solid var(--line);margin-bottom:8px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.94);backdrop-filter:blur(24px);border-top:0.5px solid var(--line);display:flex;justify-content:space-around;padding:10px 0 22px;z-index:40}
+.nav button{background:none;border:none;font-size:10px;font-weight:600;color:var(--sub);display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 12px;border-radius:12px}
+.nav button.active{color:var(--text);font-weight:900;background:var(--bg)}
+.nav button i{font-style:normal;font-size:20px}
+.live-dot{width:8px;height:8px;background:var(--red);border-radius:50%;display:inline-block;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1} 50%{opacity:0.4}}
 </style>
 </head>
 <body>
-<div class="top"><div class="logo">MBOKA <span>ROI 👑</span></div><div><b id="wallet">0 FC</b></div></div>
+<div class="top"><div class="logo">MBOKA <b>ROI 👑</b></div><div class="wallet"><span>💰</span><div id="wallet">0 FC</div><div style="background:var(--gold);color:#000;padding:2px 6px;border-radius:6px;font-size:10px" id="usd">0 $</div></div></div>
 
-<div class="hero">
-<h1>On a tout comme eux,<br>mais <b>on n'est pas eux.</b></h1>
-<p>Remise à zéro. Eux c'est ailleurs. Nous c'est MBOKA, Kinshasa. Même puissance - live, groupes, vocaux, filtres. Mais notre façon: Francs, 70% pour host, lingala, léger, clair.</p>
+<div class="hero"><h1>On a tout comme eux,<br>mais <u>on n'est pas eux.</u></h1><p>Zéro total. Claire. Bonne qualité. Toutes nos idées: live gratuit host, groupes vocaux 30s, audio face-à-face, filtres beauté Kin, tontine, sape, lingala, story 7j, badge auto, offline 5Mo, bureau d'échange 5%.</p></div>
+
+<div id="s-mboka" class="section active"><div class="publish"><textarea id="txt" rows="3" placeholder="Loba vérité na yo..."></textarea><div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="pill" onclick="txt.value+=' 🔥'">🔥</button><button class="pill" onclick="txt.value+=' 👑'">👑</button><button class="pill" onclick="txt.value+=' 🇨🇩'">🇨🇩</button><button class="pill" style="margin-left:auto;background:#000;color:var(--gold)" onclick="post()">Publier gratuit</button></div></div><div class="feed" id="feed"><div class="post"><div class="post-head"><div class="post-user"><div class="avatar">RK</div><div><div style="font-weight:800;font-size:13px">Roi Kin 👑</div><div style="font-size:11px;color:#8E8E93">Zéro • Claire • Maintenant</div></div></div><div class="badge">NOUS</div></div><div class="post-content"><b>On a tout comme eux, mais on n'est pas eux.</b> Code refait zéro, aspect claire bonne qualité, toutes idées dedans. Pas iPhone, juste claire.</div><div class="post-actions"><button onclick="vote(this)">👍 Voter 10 FC (7 FC host)</button><button>↗️ Partager</button></div></div></div></div>
+
+<div id="s-live" class="section"><div class="grid"><div class="card full" style="background:#000;color:#fff"><h3 style="color:var(--gold)">🔴 LIVE MBOKA - Host GRATUIT</h3><small style="color:#999">Toi host 0 FC. Auditeurs 100 FC max 10. Tu gagnes 70% = 700 FC si full.</small><div style="margin-top:12px"><span class="badge">GRATUIT HOST</span><span class="badge">70% POUR TOI</span></div><button class="btn gold" onclick="startLive()">🔴 LANCER LIVE</button><div id="liveRoom" style="display:none;margin-top:14px;background:#111;border-radius:14px;padding:14px"><div style="display:flex;gap:8px"><div class="live-dot"></div><span style="font-weight:800;font-size:12px;color:var(--gold)">LIVE EN COURS</span></div><div id="liveList" style="margin-top:10px;font-size:11px;color:#999">En attente...</div><button class="btn red" style="margin-top:10px" onclick="stopLive()">Arrêter + encaisser</button></div></div></div></div>
+
+<div id="s-groupes" class="section"><div style="display:flex;flex-direction:column;gap:8px"><div class="group-item"><div><div style="font-weight:800;font-size:13px">📍 Gombe Clash</div><div style="font-size:11px;color:var(--sub)">128 membres • Vocaux 30s</div></div><button class="pill active" onclick="openGroup('Gombe')">Entrer</button></div><div class="group-item"><div><div style="font-weight:800;font-size:13px">📍 Lingwala Punch</div><div style="font-size:11px;color:var(--sub)">89 membres</div></div><button class="pill active" onclick="openGroup('Lingwala')">Entrer</button></div><div class="group-item"><div><div style="font-weight:800;font-size:13px">📍 Matonge Vérité</div><div style="font-size:11px;color:var(--sub)">201 membres</div></div><button class="pill active" onclick="openGroup('Matonge')">Entrer</button></div><div class="group-item"><div><div style="font-weight:800;font-size:13px">📍 Masina Tontine</div><div style="font-size:11px;color:var(--sub)">56 membres • Tontine 100 FC</div></div><button class="pill active" onclick="openGroup('Masina')">Entrer</button></div></div><div class="card full" style="margin-top:12px"><h3>💡 Vocaux 30s</h3><small>Pas 5 min. 30s max. Bonne qualité claire.</small><button class="btn black" onclick="recordVocal()">🎙️ Enregistrer vocal 30s</button><div id="vocalStatus" style="margin-top:8px;font-size:11px;color:var(--sub)"></div></div></div>
+
+<div id="s-filtres" class="section"><div class="grid"><div class="card"><h3>✨ Beauté Kin</h3><div class="nous">Peau noire</div><small>Lumière 16h Kin.</small><button class="btn black" onclick="applyFilter('Kin Glow')">Essayer</button></div><div class="card"><h3>👔 Sape+</h3><div class="nous">Sapeur</div><small>Concours sape hebdo.</small><button class="btn gold" onclick="applyFilter('Sape+')">Essayer</button></div><div class="card"><h3>🔥 Clash</h3><div class="nous">Feu</div><small>Publier gratuit, voter payant.</small><button class="btn red" onclick="applyFilter('Clash Fire')">Essayer</button></div><div class="card"><h3>📖 Story 7j</h3><div class="nous">7 jours</div><small>Pas 24h. Badge auto.</small><button class="btn blue" onclick="applyFilter('Story 7j')">Publier Story</button></div></div></div>
+
+<div id="s-echange" class="section"><div class="exchange-box"><h2>💱 Bureau d'Échange MBOKA</h2><p style="font-size:12px;color:var(--sub);margin-top:6px">Dans le menu comme demandé. 5% pour toi. Transparent.</p><div class="input-group"><input type="number" id="fcInput" value="1000" oninput="convertFC()"><span>FC</span></div><div style="text-align:center;margin:10px 0">⬇️ 5% frais MBOKA ⬇️</div><div class="input-group"><input type="number" id="usdInput" value="0.35" oninput="convertUSD()"><span>USD</span></div><div class="fee">💡 1000 FC → 0.35 $ après 5% frais. Les 5% vont dans ton wallet pour voter/live/filtres.</div><div style="margin-top:14px"><button class="btn gold" style="width:100%" onclick="doExchange()">Échanger maintenant</button></div><div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="card" style="padding:12px"><div style="font-size:11px;color:var(--sub)">Taux du jour</div><div style="font-weight:900">1$ = 2850 FC</div></div><div class="card" style="padding:12px"><div style="font-size:11px;color:var(--sub)">Frais MBOKA</div><div style="font-weight:900">5% seulement</div></div></div></div><div class="card full" style="margin-top:12px"><h3>🔄 Toutes idées incluses</h3><small>Tontine, sape, lingala, story 7j, badge auto, offline 5Mo, échange 5%.</small><div style="margin-top:8px"><span class="badge">TONTINE 100</span><span class="badge">SAPE</span><span class="badge">LINGALA</span><span class="badge">STORY 7J</span><span class="badge">BADGE AUTO</span><span class="badge">OFFLINE 5Mo</span><span class="badge">ÉCHANGE 5%</span></div></div></div>
+
+<div id="s-moi" class="section"><div class="card full"><h3>👤 Toi - MBOKA ROI</h3><div style="margin-top:12px"><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:0.5px solid var(--line)"><span style="font-size:12px">Wallet FC</span><b id="wallet2">0 FC</b></div><div style="display:flex;justify-content:space-between;padding:8px 0"><span style="font-size:12px">Wallet USD</span><b id="usd2">0 $</b></div></div></div></div>
+
+<div class="nav">
+<button class="active" id="b-mboka" onclick="show('mboka')"><i>👑</i>MBOKA</button>
+<button id="b-live" onclick="show('live')"><i>🔴</i>LIVE</button>
+<button id="b-groupes" onclick="show('groupes')"><i>💬</i>GROUPES</button>
+<button id="b-filtres" onclick="show('filtres')"><i>✨</i>FILTRES</button>
+<button id="b-echange" onclick="show('echange')"><i>💱</i>ÉCHANGE</button>
+<button id="b-moi" onclick="show('moi')"><i>👤</i>MOI</button>
 </div>
-
-<div class="grid">
-<div class="card"><div class="tag">EUX</div><h3>🔴 LIVE</h3><div class="badge">NOUS: Host GRATUIT</div><small>Auditeurs payent 100 FC max 10. Toi 70%.</small><button class="btn gold" onclick="live()">LANCER</button></div>
-<div class="card"><div class="tag">EUX</div><h3>💬 GROUPES</h3><div class="badge">NOUS: Vocaux 30s</div><small>Gombe, Lingwala, Matonge. Vocaux 30s.</small><button class="btn black" onclick="groupes()">ENTRER</button></div>
-<div class="card"><div class="tag">EUX</div><h3>🎙️ AUDIO</h3><div class="badge">NOUS: Face-à-face</div><small>Toi vs lui. Clash honorable.</small><button class="btn blue" onclick="audio()">PARLER</button></div>
-<div class="card"><div class="tag">EUX</div><h3>✨ FILTRES</h3><div class="badge">NOUS: Beauté Kin</div><small>Peau noire, lumière Kin. Publier gratuit.</small><button class="btn red" onclick="filtre()">PUBLIER</button></div>
-<div class="card full"><h3>Notre différence</h3><small>On a pris leurs armes, on a gardé notre âme. Échange, tontine, sape, lingala, offline 5Mo.</small><div style="margin-top:8px"><span class="badge">ÉCHANGE 5%</span><span class="badge">TONTINE</span><span class="badge">SAPE</span><span class="badge">LINGALA</span></div></div>
-</div>
-
-<div class="vs"><h2>👑 MBOKA vs EUX</h2><table style="width:100%;margin-top:12px;border-collapse:collapse">
-<tr><td>Monnaie</td><td>FC pas $</td></tr>
-<tr><td>Host</td><td>GRATUIT</td></tr>
-<tr><td>Gain</td><td>70% pas 30%</td></tr>
-<tr><td>Poids</td><td>5Mo</td></tr>
-<tr><td>Esprit</td><td>Kinshasa</td></tr>
-</table></div>
-
-<div class="publish"><textarea id="txt" rows="3" placeholder="Loba vérité na yo..."></textarea><div style="display:flex;gap:6px;margin-top:10px"><button class="pill" onclick="txt.value+=' 🔥'">🔥</button><button class="pill" onclick="txt.value+=' 👑'">👑</button><button class="pill" style="margin-left:auto;background:#000;color:#FFD700" onclick="post()">Publier</button></div></div>
-
-<div class="feed" id="feed"><div class="post"><div style="display:flex;gap:10px;align-items:center"><div class="avatar">RK</div><div><div style="font-weight:800;font-size:13px">Roi Kin 👑</div><div style="font-size:11px;color:#8E8E93">Zéro</div></div></div><div style="margin-top:10px;font-size:13px"><b>On a tout comme eux, mais on n'est pas eux.</b> Même fonctions, autre âme. Claire, simple, Kin.</div><div style="margin-top:10px"><button class="pill" style="background:#000;color:#FFD700" onclick="vote(this)">👍 Voter 10 FC</button></div></div></div>
-
-<div style="height:30px"></div>
-<div class="nav"><button class="active">👑<br>MBOKA</button><button onclick="live()">🔴<br>LIVE</button><button onclick="groupes()">💬<br>GROUPES</button><button onclick="filtre()">✨<br>FILTRES</button><button>👤<br>MOI</button></div>
 
 <script>
-let fc=0;
-function live(){alert("LIVE: Host gratuit, 70% pour toi"); fc+=100; wallet.innerText=fc+" FC";}
-function groupes(){alert("GROUPES: Gombe, Lingwala, Matonge - vocaux 30s");}
-function audio(){alert("AUDIO: Face-à-face");}
-function filtre(){alert("FILTRES: Beauté Kin"); txt.focus();}
-function post(){let t=txt.value.trim(); if(!t) return; let d=document.createElement('div'); d.className='post'; d.innerHTML=`<div style='display:flex;gap:10px'><div class='avatar'>ME</div><div><div style='font-weight:800'>Toi</div></div></div><div style='margin-top:10px'>${t.replace(/</g,'&lt;')}</div>`; feed.prepend(d); txt.value=''; fc+=5; wallet.innerText=fc+' FC';}
-function vote(b){fc+=7; wallet.innerText=fc+' FC'; b.innerText='✅ Voté +7 FC';}
+let fc=0, usd=0; const rate=2850;
+function show(s){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active')); document.getElementById('s-'+s).classList.add('active'); document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active')); document.getElementById('b-'+s).classList.add('active'); window.scrollTo(0,0);}
+function updateWallet(){wallet.innerText=fc+' FC'; wallet2.innerText=fc+' FC'; usdEl=document.getElementById('usd'); usdEl.innerText=usd.toFixed(2)+' $'; usd2.innerText=usd.toFixed(2)+' $';}
+function post(){let t=txt.value.trim(); if(!t) return alert('Écris!'); let f=feed; let d=document.createElement('div'); d.className='post'; d.innerHTML=`<div class='post-head'><div class='post-user'><div class='avatar'>ME</div><div><div style='font-weight:800'>Toi</div></div></div></div><div class='post-content'>${t.replace(/</g,'&lt;')}</div>`; f.prepend(d); txt.value=''; fc+=5; updateWallet();}
+function vote(b){fc+=7; b.innerText='✅ Voté! +7 FC'; b.disabled=true; updateWallet();}
+function startLive(){liveRoom.style.display='block'; fc+=100; updateWallet(); let c=0; let iv=setInterval(()=>{c++; if(c>10){clearInterval(iv); liveList.innerHTML='✅ Full 10/10! 700 FC pour toi!'; return;} liveList.innerHTML=`🔥 ${c}/10 auditeurs... +${c*70} FC`; fc+=70; updateWallet();},1200); window._liveIv=iv;}
+function stopLive(){clearInterval(window._liveIv); liveRoom.style.display='none'; alert('Live arrêté! FC encaissés.');}
+function openGroup(n){alert('Groupe '+n+' - Vocaux 30s, tontine, sape');}
+function recordVocal(){vocalStatus.innerText='🎙️ Enregistrement 30s...'; setTimeout(()=>{vocalStatus.innerText='✅ Vocal 30s enregistré! +5 FC'; fc+=5; updateWallet();},2000);}
+function applyFilter(n){alert('Filtre '+n+' - Claire bonne qualité');}
+function convertFC(){let f=parseFloat(fcInput.value)||0; let u=(f*0.95)/rate; usdInput.value=u.toFixed(2);}
+function convertUSD(){let u=parseFloat(usdInput.value)||0; let f=(u*rate)/0.95; fcInput.value=Math.round(f);}
+function doExchange(){let f=parseFloat(fcInput.value)||0; let u=parseFloat(usdInput.value)||0; let fee=f*0.05; fc-=fee; usd+=u; updateWallet(); alert(`Échangé ${f} FC → ${u} $ - Frais 5% = ${fee} FC`); convertFC();}
+convertFC();
 </script>
 </body>
 </html>
