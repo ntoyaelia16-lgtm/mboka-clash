@@ -1,0 +1,16 @@
+{
+  "name": "MBOKA CLASH - Kinshasa",
+  "short_name": "MBOKA",
+  "description": "Le reseau de clash le plus fort de Kin - Wenge vs JB, Gombe vs Matonge!",
+  "start_url": "/mboka-clash/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff0000",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
