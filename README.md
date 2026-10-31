@@ -1,13 +1,2 @@
-{
-  "name": "MBOKA STREAM - Live Clash Kin",
-  "short_name": "MBOKA STREAM",
-  "description": "Le TikTok des clashs de Kinshasa - Live Streaming",
-  "start_url": "/mboka-clash/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#0066FF",
-  "icons": [
-    {"src": "icon-192.png","sizes": "192x192","type": "image/png"},
-    {"src": "icon-512.png","sizes": "512x512","type": "image/png"}
-  ]
-}
+# MBOKA STREAM
+Application de streaming live pour Kinshasa
