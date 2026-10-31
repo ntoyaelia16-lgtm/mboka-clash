@@ -3,85 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MBOKA ROI - On a tout comme eux mais on n'est pas eux</title>
+<title>MBOKA ROI - Claire</title>
 <style>
-:root{--bg:#F2F2F7;--card:#FFFFFF;--sub:#8E8E93;--gold:#FFD700;--blue:#007AFF;--red:#FF3B30;--green:#34C759}
+:root{--bg:#F2F2F7;--card:#FFFFFF;--sub:#8E8E93;--gold:#FFD700}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);font-family:sans-serif;padding-bottom:90px}
-.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.82);backdrop-filter:blur(24px);border-bottom:0.5px solid #E5E5EA;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:950;font-size:20px;letter-spacing:-1px}
-.logo i{font-style:normal;background:#000;color:var(--gold);padding:2px 8px;border-radius:8px;margin-left:4px}
-.manifeste{margin:16px;background:#fff;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}
-.manifeste h1{font-size:26px;line-height:1.1;font-weight:900}
-.manifeste h1 u{text-decoration:none;background:#000;color:var(--gold);padding:0 8px;border-radius:10px}
-.manifeste p{margin-top:12px;color:var(--sub);font-size:13.5px;line-height:1.5}
+.top{position:sticky;top:0;background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);border-bottom:0.5px solid #E5E5EA;padding:14px 16px;display:flex;justify-content:space-between}
+.logo{font-weight:900;font-size:19px}
+.logo span{background:#000;color:var(--gold);padding:2px 7px;border-radius:7px;margin-left:4px}
+.hero{margin:16px;background:#fff;border-radius:20px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.04)}
+.hero h1{font-size:22px;line-height:1.2;font-weight:900}
+.hero h1 b{background:#000;color:var(--gold);padding:0 6px;border-radius:8px}
+.hero p{margin-top:10px;color:var(--sub);font-size:13px;line-height:1.5}
 .grid{margin:0 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:#fff;border-radius:20px;padding:16px;border:0.5px solid #F0F0F0;box-shadow:0 2px 12px rgba(0,0,0,0.04);position:relative}
-.card.full{grid-column:1 / -1}
-.card .eux{font-size:9px;font-weight:900;background:#F2F2F7;color:var(--sub);padding:4px 8px;border-radius:20px;position:absolute;top:12px;right:12px}
-.card h3{font-size:15px;font-weight:800;margin-top:4px}
-.card .nous{margin-top:8px;display:inline-block;background:#000;color:var(--gold);font-size:10px;font-weight:800;padding:4px 8px;border-radius:8px}
-.card small{color:var(--sub);font-size:11px;line-height:1.35;display:block;margin-top:8px}
-.btn{margin-top:12px;width:100%;padding:13px;border:none;border-radius:14px;font-weight:900;font-size:13px}
-.gold{background:var(--gold);color:#000}.black{background:#000;color:var(--gold)}.blue{background:var(--blue);color:#fff}.red{background:var(--red);color:#fff}
-.vs{margin:16px;background:#000;border-radius:24px;padding:20px;color:#fff}
-.vs h2{color:var(--gold);font-size:17px;font-weight:900}
-.vs td{padding:10px 0;font-size:12.5px;border-bottom:0.5px solid #222}
+.card{background:#fff;border-radius:18px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,0.04);border:0.5px solid #F0F0F0;position:relative}
+.card.full{grid-column:1/-1}
+.tag{position:absolute;top:10px;right:10px;font-size:9px;font-weight:800;background:#F2F2F7;color:var(--sub);padding:3px 7px;border-radius:20px}
+.card h3{font-size:14px;font-weight:800}
+.badge{display:inline-block;background:#000;color:var(--gold);font-size:10px;font-weight:800;padding:3px 7px;border-radius:7px;margin-top:8px}
+.card small{color:var(--sub);font-size:11px;display:block;margin-top:8px}
+.btn{margin-top:12px;width:100%;padding:12px;border:none;border-radius:12px;font-weight:800;font-size:12px}
+.gold{background:var(--gold);color:#000}.black{background:#000;color:var(--gold)}.blue{background:#007AFF;color:#fff}.red{background:#FF3B30;color:#fff}
+.vs{margin:16px;background:#000;border-radius:20px;padding:18px;color:#fff}
+.vs h2{color:var(--gold);font-size:15px}
+.vs td{padding:8px 0;font-size:12px;border-bottom:0.5px solid #222}
 .vs td:last-child{color:var(--gold);font-weight:800;text-align:right}
-.publish{background:#fff;margin:16px;border-radius:20px;padding:16px;border:0.5px solid #F0F0F0}
-.publish textarea{width:100%;border:none;background:#F2F2F7;border-radius:14px;padding:14px;font-size:14px;resize:none;outline:none}
-.pill{padding:8px 12px;background:#F2F2F7;border-radius:20px;font-size:11px;font-weight:700;border:none}
-.feed{margin:0 16px}.post{background:#fff;border-radius:20px;padding:14px;margin-bottom:12px;border:0.5px solid #F0F0F0}
-.post .head{display:flex;justify-content:space-between;align-items:center}
-.post .avatar{width:36px;height:36px;border-radius:50%;background:#000;color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px}
-.post .content{margin-top:10px;font-size:14px;line-height:1.4}
-.post .vote{margin-top:12px;display:flex;gap:8px}
-.post .vote button{flex:1;padding:10px;border-radius:12px;border:0.5px solid #E5E5EA;background:#fff;font-weight:800;font-size:12px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.88);backdrop-filter:blur(24px);border-top:0.5px solid #E5E5EA;display:flex;justify-content:space-around;padding:10px 0 22px}
-.nav button{background:none;border:none;font-size:10px;font-weight:600;color:var(--sub);display:flex;flex-direction:column;align-items:center}
-.nav button.active{color:#000;font-weight:900}
-.nav button i{font-style:normal;font-size:20px}
+.publish{background:#fff;margin:16px;border-radius:18px;padding:14px}
+.publish textarea{width:100%;border:none;background:#F2F2F7;border-radius:12px;padding:12px;font-size:13px;outline:none;resize:none}
+.pill{padding:7px 12px;background:#F2F2F7;border-radius:20px;font-size:11px;font-weight:700;border:none}
+.feed{margin:0 16px}.post{background:#fff;border-radius:18px;padding:14px;margin-bottom:10px}
+.avatar{width:32px;height:32px;border-radius:50%;background:#000;color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-top:0.5px solid #E5E5EA;display:flex;justify-content:space-around;padding:10px 0 20px}
+.nav button{background:none;border:none;font-size:10px;color:var(--sub)}
+.nav button.active{color:#000;font-weight:800}
 </style>
 </head>
 <body>
-<div class="top"><div class="logo">MBOKA <i>ROI 👑</i></div><div style="font-size:12px"><span style="color:#8E8E93">💰</span> <b id="wallet">0 FC</b></div></div>
+<div class="top"><div class="logo">MBOKA <span>ROI 👑</span></div><div><b id="wallet">0 FC</b></div></div>
 
-<div class="manifeste">
-<h1>On a tout comme eux,<br>mais <u>on n'est pas eux.</u></h1>
-<p>Remise à zéro totale. Eux c'est TikTok, Insta, WhatsApp, Messenger. <b>Nous c'est MBOKA</b> - Kinshasa, Francs, tontine, lingala. Même puissance. Autre âme. Claire comme vitre ya biso.</p>
+<div class="hero">
+<h1>On a tout comme eux,<br>mais <b>on n'est pas eux.</b></h1>
+<p>Remise à zéro. Eux c'est ailleurs. Nous c'est MBOKA, Kinshasa. Même puissance - live, groupes, vocaux, filtres. Mais notre façon: Francs, 70% pour host, lingala, léger, clair.</p>
 </div>
 
 <div class="grid">
-<div class="card"><div class="eux">EUX: TikTok</div><h3>🔴 LIVE</h3><div class="nous">NOUS: Host GRATUIT</div><small>Auditeurs payent 100 FC. Toi host 0 FC. Max 10. Tu gagnes 70%.</small><button class="btn gold" onclick="live()">LANCER LIVE</button></div>
-<div class="card"><div class="eux">EUX: WhatsApp</div><h3>💬 GROUPES</h3><div class="nous">NOUS: Vocaux 30s</div><small>Clash par commune: Gombe, Lingwala. Vocaux 30s max.</small><button class="btn black" onclick="groupes()">ENTRER</button></div>
-<div class="card"><div class="eux">EUX: Messenger</div><h3>🎙️ AUDIO 1-1</h3><div class="nous">NOUS: Face-à-face</div><small>Toi contre lui. Audio direct. Clash honorable.</small><button class="btn blue" onclick="audio()">PARLER</button></div>
-<div class="card"><div class="eux">EUX: Instagram</div><h3>✨ FILTRES</h3><div class="nous">NOUS: Beauté Kin</div><small>Filtres pour peau noire, lumière Kin. Publier gratuit.</small><button class="btn red" onclick="filtre()">PUBLIER</button></div>
-<div class="card full"><h3>🧠 Notre Code - Zéro copie</h3><small>On a piqué leurs meilleures armes, mais on a mis notre pagne. Échange FC/USD 5% pour toi.</small><div style="margin-top:10px"><span class="nous">ÉCHANGE 5%</span><span class="nous">TONTINE 100</span><span class="nous">SAPE</span><span class="nous">LINGALA</span></div></div>
+<div class="card"><div class="tag">EUX</div><h3>🔴 LIVE</h3><div class="badge">NOUS: Host GRATUIT</div><small>Auditeurs payent 100 FC max 10. Toi 70%.</small><button class="btn gold" onclick="live()">LANCER</button></div>
+<div class="card"><div class="tag">EUX</div><h3>💬 GROUPES</h3><div class="badge">NOUS: Vocaux 30s</div><small>Gombe, Lingwala, Matonge. Vocaux 30s.</small><button class="btn black" onclick="groupes()">ENTRER</button></div>
+<div class="card"><div class="tag">EUX</div><h3>🎙️ AUDIO</h3><div class="badge">NOUS: Face-à-face</div><small>Toi vs lui. Clash honorable.</small><button class="btn blue" onclick="audio()">PARLER</button></div>
+<div class="card"><div class="tag">EUX</div><h3>✨ FILTRES</h3><div class="badge">NOUS: Beauté Kin</div><small>Peau noire, lumière Kin. Publier gratuit.</small><button class="btn red" onclick="filtre()">PUBLIER</button></div>
+<div class="card full"><h3>Notre différence</h3><small>On a pris leurs armes, on a gardé notre âme. Échange, tontine, sape, lingala, offline 5Mo.</small><div style="margin-top:8px"><span class="badge">ÉCHANGE 5%</span><span class="badge">TONTINE</span><span class="badge">SAPE</span><span class="badge">LINGALA</span></div></div>
 </div>
 
-<div class="vs"><h2>👑 MBOKA vs EUX</h2><table style="width:100%;margin-top:14px;border-collapse:collapse">
+<div class="vs"><h2>👑 MBOKA vs EUX</h2><table style="width:100%;margin-top:12px;border-collapse:collapse">
 <tr><td>Monnaie</td><td>FC pas $</td></tr>
-<tr><td>Live Host</td><td>GRATUIT pas payant</td></tr>
-<tr><td>Gain Host</td><td>70% pas 30%</td></tr>
-<tr><td>Poids</td><td>5Mo pas 200Mo</td></tr>
-<tr><td>Esprit</td><td>Kinshasa pas Californie</td></tr>
+<tr><td>Host</td><td>GRATUIT</td></tr>
+<tr><td>Gain</td><td>70% pas 30%</td></tr>
+<tr><td>Poids</td><td>5Mo</td></tr>
+<tr><td>Esprit</td><td>Kinshasa</td></tr>
 </table></div>
 
-<div class="publish"><h3 style="font-size:14px">Publie ton clash - Zéro</h3><textarea id="txt" rows="3" placeholder="Loba vérité na yo..."></textarea><div style="display:flex;gap:8px;margin-top:10px"><button class="pill" onclick="document.getElementById('txt').value+=' 🔥'">🔥</button><button class="pill" onclick="document.getElementById('txt').value+=' 👑'">👑</button><button class="pill" style="margin-left:auto;background:#000;color:#FFD700" onclick="post()">Publier gratuit</button></div></div>
+<div class="publish"><textarea id="txt" rows="3" placeholder="Loba vérité na yo..."></textarea><div style="display:flex;gap:6px;margin-top:10px"><button class="pill" onclick="txt.value+=' 🔥'">🔥</button><button class="pill" onclick="txt.value+=' 👑'">👑</button><button class="pill" style="margin-left:auto;background:#000;color:#FFD700" onclick="post()">Publier</button></div></div>
 
-<div class="feed" id="feed"><div class="post"><div class="head"><div style="display:flex;gap:10px;align-items:center"><div class="avatar">RK</div><div><div style="font-weight:800;font-size:13px">Roi de Kin 👑</div><div style="font-size:11px;color:#8E8E93">Gombe • Zéro</div></div></div><div style="font-size:11px;background:#FFD700;padding:3px 8px;border-radius:20px;font-weight:800">ZÉRO</div></div><div class="content"><b>On a tout comme eux, mais on n'est pas eux.</b> On a repris zéro. Même live, groupes, vocaux, filtres. Mais FC, 70% pour host, lingala, 5Mo. Claire comme vitre ya biso.</div><div class="vote"><button onclick="vote(this)">👍 Voter 10 FC (7 FC pour host)</button></div></div></div>
+<div class="feed" id="feed"><div class="post"><div style="display:flex;gap:10px;align-items:center"><div class="avatar">RK</div><div><div style="font-weight:800;font-size:13px">Roi Kin 👑</div><div style="font-size:11px;color:#8E8E93">Zéro</div></div></div><div style="margin-top:10px;font-size:13px"><b>On a tout comme eux, mais on n'est pas eux.</b> Même fonctions, autre âme. Claire, simple, Kin.</div><div style="margin-top:10px"><button class="pill" style="background:#000;color:#FFD700" onclick="vote(this)">👍 Voter 10 FC</button></div></div></div>
 
 <div style="height:30px"></div>
-<div class="nav"><button class="active"><i>👑</i>MBOKA</button><button onclick="live()"><i>🔴</i>LIVE</button><button onclick="groupes()"><i>💬</i>GROUPES</button><button onclick="filtre()"><i>✨</i>FILTRES</button><button><i>👤</i>MOI</button></div>
+<div class="nav"><button class="active">👑<br>MBOKA</button><button onclick="live()">🔴<br>LIVE</button><button onclick="groupes()">💬<br>GROUPES</button><button onclick="filtre()">✨<br>FILTRES</button><button>👤<br>MOI</button></div>
 
 <script>
 let fc=0;
-function live(){alert("🔴 LIVE ZÉRO\\nHost gratuit, 70% pour toi"); fc+=100; document.getElementById('wallet').innerText=fc+" FC";}
-function groupes(){alert("💬 GROUPES ZÉRO - Gombe, Lingwala, Matonge - Vocaux 30s");}
-function audio(){alert("🎙️ AUDIO 1-1 - Face-à-face honorable");}
-function filtre(){alert("✨ FILTRES KIN - Peau noire, lumière Kin"); document.getElementById('txt').focus();}
-function post(){let t=document.getElementById('txt').value.trim(); if(!t) return alert("Écris!"); let f=document.getElementById('feed'); let d=document.createElement('div'); d.className='post'; d.innerHTML=`<div class='head'><div style='display:flex;gap:10px;align-items:center'><div class='avatar'>ME</div><div><div style='font-weight:800;font-size:13px'>Toi - MBOKA 👑</div><div style='font-size:11px;color:#8E8E93'>Maintenant</div></div></div></div><div class='content'>${t.replace(/</g,'&lt;')}</div><div class='vote'><button onclick='vote(this)'>👍 Voter 10 FC</button></div>`; f.prepend(d); document.getElementById('txt').value=''; fc+=5; document.getElementById('wallet').innerText=fc+' FC';}
-function vote(b){fc+=7; document.getElementById('wallet').innerText=fc+' FC'; b.innerText='✅ Voté! +7 FC'; b.disabled=true;}
+function live(){alert("LIVE: Host gratuit, 70% pour toi"); fc+=100; wallet.innerText=fc+" FC";}
+function groupes(){alert("GROUPES: Gombe, Lingwala, Matonge - vocaux 30s");}
+function audio(){alert("AUDIO: Face-à-face");}
+function filtre(){alert("FILTRES: Beauté Kin"); txt.focus();}
+function post(){let t=txt.value.trim(); if(!t) return; let d=document.createElement('div'); d.className='post'; d.innerHTML=`<div style='display:flex;gap:10px'><div class='avatar'>ME</div><div><div style='font-weight:800'>Toi</div></div></div><div style='margin-top:10px'>${t.replace(/</g,'&lt;')}</div>`; feed.prepend(d); txt.value=''; fc+=5; wallet.innerText=fc+' FC';}
+function vote(b){fc+=7; wallet.innerText=fc+' FC'; b.innerText='✅ Voté +7 FC';}
 </script>
 </body>
 </html>
