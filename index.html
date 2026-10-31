@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBOKA - Le Reseau de Clash le plus FORT de Kin</title>
+<title>MBOKA - Le Reseau de clash le plus FORT de Kin</title>
+<link rel="manifest" href="manifest.json">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -13,63 +14,41 @@ body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:white}
 .clash-card:hover{border-color:#FF3B30}
 </style>
 </head>
-<body class="pb-24">
-<header class="sticky top-0 z-50 bg-black border-b-2 border-[#FF3B30] p-4 flex justify-between items-center">
-<h1 class="anton text-3xl tracking-widest">MBOKA<span style="color:#FF3B30">.CLASH</span></h1>
-<button onclick="document.getElementById('create').classList.toggle('hidden')" style="background:#FF3B30" class="px-4 py-2 font-bold">+ CLASH</button>
+<body class="p-4">
+<header class="text-center py-6">
+<h1 class="anton text-5xl">MBOKA<span class="text-[#FF3B30]">.CLASH</span></h1>
+<p class="text-zinc-500 mt-2">Le réseau de clash le plus FORT de Kin</p>
+<button onclick="document.getElementById('create').classList.toggle('hidden')" class="mt-4 bg-[#FF3B30] px-6 py-2 font-bold">+ LANCER LE CLASH</button>
 </header>
 
-<div id="create" class="hidden p-4 bg-zinc-900 border-b border-zinc-800">
-<input id="title" placeholder="Titre du clash: ex: Qui est le plus sapé de Gombe?" class="w-full p-3 bg-black border border-zinc-700 rounded mb-2">
-<div style="display:flex;gap:8px">
-<input id="opt1" placeholder="Option 1" style="width:50%" class="p-3 bg-black border border-zinc-700 rounded">
-<input id="opt2" placeholder="Option 2" style="width:50%" class="p-3 bg-black border border-zinc-700 rounded">
+<div id="create" class="hidden bg-zinc-900 border border-zinc-800 p-4 max-w-[600px] mx-auto mb-6">
+<input id="title" placeholder="Titre du clash: Ex: Qui est le plus sape de Gombe?" class="w-full p-3 bg-black border border-zinc-700 mb-2">
+<div class="flex gap-2">
+<input id="opt1" placeholder="Option 1" class="w-1/2 p-3 bg-black border border-zinc-700">
+<input id="opt2" placeholder="Option 2" class="w-1/2 p-3 bg-black border border-zinc-700">
 </div>
-<button onclick="addClash()" class="w-full mt-3 bg-white text-black font-bold py-3">LANCER LE CLASH 🔥</button>
+<button onclick="addClash()" class="w-full mt-3 bg-white text-black font-bold py-3">LANCER LE CLASH</button>
 </div>
 
-<main id="feed" class="p-3 space-y-4" style="max-width:600px;margin:auto"></main>
+<main id="feed" class="space-y-4 max-w-[600px] mx-auto"></main>
 
 <script>
-const defaultClashes = [
-{t:"Qui est le plus fort entre Wenge et JB Mpiana?",o1:"Wenge Original",o2:"JB Mpiana",v1:342,v2:289,cat:"MUSIQUE"},
-{t:"Meilleur quartier de Kin la nuit?",o1:"Gombe",o2:"Matonge",v1:512,v2:421,cat:"QUARTIER"},
-{t:"Sape la plus propre?",o1:"Dior + Air Force",o2:"Balenciaga Track",v1:198,v2:267,cat:"SAPE"},
-{t:"Classico Kin: DCMP vs V.Club?",o1:"DCMP Imana",o2:"AS V.Club",v1:623,v2:598,cat:"FOOT"}
+const defaultClashes=[
+{q:"C'est qui le plus fort entre Wenge et JB Mpiana?",o1:"Wenge Original",o2:"JB Mpiana",v1:342,v2:289,cat:"MUSIQUE"},
+{q:"Le meilleur quartier de Kin, la nuit?",o1:"Gombe",o2:"Matonge",v1:512,v2:431,cat:"QUARTIER"},
+{q:"Qui est le plus propre? Dior ou Air Force?",o1:"Dior",o2:"Air Force",v1:298,v2:267,cat:"SAPE"},
+{q:"Balenciaga Track vs New Balance?",o1:"Balenciaga Track",o2:"V.298",v1:198,v2:267,cat:"SAPE"},
+{q:"Kinois: DCMP ou V.Club?",o1:"DCMP Imana",o2:"AS V.Club",v1:623,v2:598,cat:"FOOT"}
 ];
-let clashes = JSON.parse(localStorage.getItem('mboka')||'null') || defaultClashes;
+let clashes=JSON.parse(localStorage.getItem('mboka'))||defaultClashes;
 function render(){
-const feed = document.getElementById('feed');
+const feed=document.getElementById('feed');
 feed.innerHTML='';
 clashes.forEach((c,i)=>{
-const total = c.v1+c.v2;
-const p1 = Math.round((c.v1/total)*100)||50;
-const p2 = 100-p1;
-feed.innerHTML+=`<div style="border:2px solid #222;background:#18181b;border-radius:12px;padding:16px">
-<div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="font-size:11px;background:#27272a;padding:2px 8px;border-radius:4px">${c.cat}</span><span style="font-size:11px;color:#888">${total} votes</span></div>
-<h2 style="font-weight:bold;font-size:18px;margin-bottom:16px">${c.t}</h2>
-<button onclick="vote(${i},1)" style="width:100%;text-align:left;margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span style="font-weight:bold">${c.o1}</span><span>${p1}%</span></div><div style="width:100%;height:12px;background:black;border-radius:99px;overflow:hidden"><div style="height:100%;background:#FF3B30;width:${p1}%"></div></div></button>
-<button onclick="vote(${i},2)" style="width:100%;text-align:left"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span style="font-weight:bold">${c.o2}</span><span>${p2}%</span></div><div style="width:100%;height:12px;background:black;border-radius:99px;overflow:hidden"><div style="height:100%;background:white;width:${p2}%"></div></div></button>
-</div>`;
-});
-}
-function vote(i,opt){
-if(localStorage.getItem('voted_'+i)) return alert('Tu as déjà voté!');
-opt===1?clashes[i].v1++:clashes[i].v2++;
-localStorage.setItem('voted_'+i,'1');
-localStorage.setItem('mboka',JSON.stringify(clashes));
-render();
-}
-function addClash(){
-const t=document.getElementById('title').value, a=document.getElementById('opt1').value, b=document.getElementById('opt2').value;
-if(!t||!a||!b) return alert('Remplis tout!');
-clashes.unshift({t:t,o1:a,o2:b,v1:1,v2:1,cat:'NOUVEAU'});
-localStorage.setItem('mboka',JSON.stringify(clashes));
-document.getElementById('title').value='';document.getElementById('opt1').value='';document.getElementById('opt2').value='';
-document.getElementById('create').classList.add('hidden');
-render();
-}
-render();
-</script>
-</body>
-  </html>
+const total=c.v1+c.v2;
+const p1=Math.round(c.v1/total*100);
+const p2=100-p1;
+feed.innerHTML+=`
+<div class="clash-card bg-zinc-900 p-4">
+<div class="flex justify-between text-xs text-zinc-500 mb-2"><span>${c.cat}</span><span>${total} votes</span></div>
+<h2 class="font-bold text-lg mb-4
